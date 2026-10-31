@@ -402,16 +402,16 @@
    "r": 6.694
   },
   {
+   "funding_source_name": "Community development",
+   "r": 0.112
+  },
+  {
    "funding_source_name": "Federal",
    "r": 2.279
   },
   {
    "funding_source_name": "Intra-city sales",
    "r": 0.535
-  },
-  {
-   "funding_source_name": "Community development",
-   "r": 0.112
   },
   {
    "funding_source_name": "Inter-fund agreement (IFA)",
