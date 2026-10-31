@@ -1,0 +1,503 @@
+{
+ "rows": {
+  "lines": 1137678,
+  "funding_rows": 446040,
+  "agencies": 149,
+  "uas": 770
+ },
+ "checks": [
+  {
+   "check_name": "fct_budget_line rows = raw rows",
+   "failing_rows": 0
+  },
+  {
+   "check_name": "every publication mapped to a stage",
+   "failing_rows": 0
+  },
+  {
+   "check_name": "one Adopted publication per FY",
+   "failing_rows": 0
+  },
+  {
+   "check_name": "restated prior-FY adopted = that FY's Adopted plan (within $1)",
+   "failing_rows": 0
+  },
+  {
+   "check_name": "funding total = budget total per publication (within 0.5%)",
+   "failing_rows": 0
+  },
+  {
+   "check_name": "agencies unique",
+   "failing_rows": 0
+  },
+  {
+   "check_name": "no orphan unit of appropriation",
+   "failing_rows": 0
+  }
+ ],
+ "lifecycle_bn": [
+  {
+   "fiscal_year": 2016,
+   "preliminary": null,
+   "executive": null,
+   "adopted": null,
+   "modified_latest": 84.8613,
+   "in_year_revision": 4.5648,
+   "in_year_revision_pct": 0.0568
+  },
+  {
+   "fiscal_year": 2017,
+   "preliminary": null,
+   "executive": 83.9832,
+   "adopted": 83.8796,
+   "modified_latest": 87.9064,
+   "in_year_revision": 4.0268,
+   "in_year_revision_pct": 0.048
+  },
+  {
+   "fiscal_year": 2018,
+   "preliminary": 86.4542,
+   "executive": 86.675,
+   "adopted": 87.0542,
+   "modified_latest": 92.2353,
+   "in_year_revision": 5.1812,
+   "in_year_revision_pct": 0.0595
+  },
+  {
+   "fiscal_year": 2019,
+   "preliminary": 90.423,
+   "executive": 90.8871,
+   "adopted": 90.9834,
+   "modified_latest": 96.0944,
+   "in_year_revision": 5.111,
+   "in_year_revision_pct": 0.0562
+  },
+  {
+   "fiscal_year": 2020,
+   "preliminary": 94.0044,
+   "executive": 94.2869,
+   "adopted": 94.5917,
+   "modified_latest": 100.3877,
+   "in_year_revision": 5.796,
+   "in_year_revision_pct": 0.0613
+  },
+  {
+   "fiscal_year": 2021,
+   "preliminary": 97.1508,
+   "executive": 91.1797,
+   "adopted": 90.0342,
+   "modified_latest": 105.6436,
+   "in_year_revision": 15.6094,
+   "in_year_revision_pct": 0.1734
+  },
+  {
+   "fiscal_year": 2022,
+   "preliminary": 94.0958,
+   "executive": 100.4503,
+   "adopted": 100.6149,
+   "modified_latest": 114.0549,
+   "in_year_revision": 13.44,
+   "in_year_revision_pct": 0.1336
+  },
+  {
+   "fiscal_year": 2023,
+   "preliminary": 100.3865,
+   "executive": 101.6251,
+   "adopted": 103.0975,
+   "modified_latest": 113.6353,
+   "in_year_revision": 10.5378,
+   "in_year_revision_pct": 0.1022
+  },
+  {
+   "fiscal_year": 2024,
+   "preliminary": 104.5569,
+   "executive": 108.6844,
+   "adopted": 109.1048,
+   "modified_latest": 117.8658,
+   "in_year_revision": 8.761,
+   "in_year_revision_pct": 0.0803
+  },
+  {
+   "fiscal_year": 2025,
+   "preliminary": 111.4387,
+   "executive": 113.5744,
+   "adopted": 114.385,
+   "modified_latest": 123.8446,
+   "in_year_revision": 9.4596,
+   "in_year_revision_pct": 0.0827
+  },
+  {
+   "fiscal_year": 2026,
+   "preliminary": 116.3315,
+   "executive": 116.9494,
+   "adopted": 117.7915,
+   "modified_latest": 129.2288,
+   "in_year_revision": 11.4373,
+   "in_year_revision_pct": 0.0971
+  },
+  {
+   "fiscal_year": 2027,
+   "preliminary": 128.9471,
+   "executive": 126.8953,
+   "adopted": 128.4259,
+   "modified_latest": null,
+   "in_year_revision": null,
+   "in_year_revision_pct": null
+  }
+ ],
+ "adopted_cagr_fy17_fy27": 0.043517187775800936,
+ "in_year_revision_pct_range": [
+  0.04800704787488752,
+  0.1733712537824088
+ ],
+ "top_in_year_increases_fy2026_bn": [
+  {
+   "agency_name": "DEPARTMENT OF EDUCATION",
+   "r": 2.713
+  },
+  {
+   "agency_name": "DEPARTMENT OF SOCIAL SERVICES",
+   "r": 2.712
+  },
+  {
+   "agency_name": "DEBT SERVICE",
+   "r": 1.608
+  },
+  {
+   "agency_name": "ADMIN FOR CHILDREN'S SERVICES",
+   "r": 1.289
+  },
+  {
+   "agency_name": "DEPARTMENT OF HOMELESS SERVICES",
+   "r": 0.926
+  }
+ ],
+ "fy2027_prelim_to_adopted_by_agency_bn": [
+  {
+   "agency_name": "DEBT SERVICE",
+   "prelim_to_adopted_bn": -1.921
+  },
+  {
+   "agency_name": "PENSION CONTRIBUTIONS",
+   "prelim_to_adopted_bn": -1.714
+  },
+  {
+   "agency_name": "CITYWIDE SAVINGS INITIATIVES",
+   "prelim_to_adopted_bn": 1.06
+  },
+  {
+   "agency_name": "MISCELLANEOUS",
+   "prelim_to_adopted_bn": -0.682
+  },
+  {
+   "agency_name": "DEPARTMENT OF EDUCATION",
+   "prelim_to_adopted_bn": 0.574
+  },
+  {
+   "agency_name": "DEPARTMENT OF HOMELESS SERVICES",
+   "prelim_to_adopted_bn": -0.389
+  }
+ ],
+ "fy2027_vs_fy2026_adopted_by_agency_bn": [
+  {
+   "agency_name": "DEPARTMENT OF EDUCATION",
+   "v": 3.607
+  },
+  {
+   "agency_name": "DEPARTMENT OF SOCIAL SERVICES",
+   "v": 3.015
+  },
+  {
+   "agency_name": "DEBT SERVICE",
+   "v": 2.494
+  },
+  {
+   "agency_name": "DEPARTMENT OF HOMELESS SERVICES",
+   "v": 0.686
+  },
+  {
+   "agency_name": "ADMIN FOR CHILDREN'S SERVICES",
+   "v": 0.382
+  },
+  {
+   "agency_name": "DEPARTMENT OF HEALTH AND MENTAL HYGIENE",
+   "v": 0.329
+  }
+ ],
+ "fy2027_vs_fy2026_adopted_by_object_class_bn": [
+  {
+   "object_class_name": "SOCIAL SERVICES",
+   "v": 2.752
+  },
+  {
+   "object_class_name": "CONTRACTUAL SERVICES",
+   "v": 2.67
+  },
+  {
+   "object_class_name": "TRANSFERS FOR DEBT SERVICE",
+   "v": 2.456
+  },
+  {
+   "object_class_name": "FULL TIME SALARIED",
+   "v": 1.394
+  },
+  {
+   "object_class_name": "OTHER SERVICES AND CHARGES",
+   "v": 0.396
+  },
+  {
+   "object_class_name": "FIXED & MISCELLANEOUS CHARGES",
+   "v": 0.17
+  }
+ ],
+ "funding_by_group_bn": [
+  {
+   "fiscal_year": 2016,
+   "funding_group": "City",
+   "adopted": 0.0,
+   "in_year_revision": 2.525
+  },
+  {
+   "fiscal_year": 2016,
+   "funding_group": "Non-city",
+   "adopted": 0.0,
+   "in_year_revision": 2.04
+  },
+  {
+   "fiscal_year": 2017,
+   "funding_group": "City",
+   "adopted": 59.271,
+   "in_year_revision": 1.526
+  },
+  {
+   "fiscal_year": 2017,
+   "funding_group": "Non-city",
+   "adopted": 24.609,
+   "in_year_revision": 2.5
+  },
+  {
+   "fiscal_year": 2018,
+   "funding_group": "City",
+   "adopted": 61.458,
+   "in_year_revision": 3.012
+  },
+  {
+   "fiscal_year": 2018,
+   "funding_group": "Non-city",
+   "adopted": 25.596,
+   "in_year_revision": 2.169
+  },
+  {
+   "fiscal_year": 2019,
+   "funding_group": "City",
+   "adopted": 65.028,
+   "in_year_revision": 2.884
+  },
+  {
+   "fiscal_year": 2019,
+   "funding_group": "Non-city",
+   "adopted": 25.956,
+   "in_year_revision": 2.227
+  },
+  {
+   "fiscal_year": 2020,
+   "funding_group": "City",
+   "adopted": 68.543,
+   "in_year_revision": -0.5
+  },
+  {
+   "fiscal_year": 2020,
+   "funding_group": "Non-city",
+   "adopted": 26.049,
+   "in_year_revision": 6.296
+  },
+  {
+   "fiscal_year": 2021,
+   "funding_group": "City",
+   "adopted": 63.745,
+   "in_year_revision": 6.309
+  },
+  {
+   "fiscal_year": 2021,
+   "funding_group": "Non-city",
+   "adopted": 26.289,
+   "in_year_revision": 9.3
+  },
+  {
+   "fiscal_year": 2022,
+   "funding_group": "City",
+   "adopted": 67.323,
+   "in_year_revision": 7.217
+  },
+  {
+   "fiscal_year": 2022,
+   "funding_group": "Non-city",
+   "adopted": 33.292,
+   "in_year_revision": 6.223
+  },
+  {
+   "fiscal_year": 2023,
+   "funding_group": "City",
+   "adopted": 73.323,
+   "in_year_revision": 6.389
+  },
+  {
+   "fiscal_year": 2023,
+   "funding_group": "Non-city",
+   "adopted": 29.775,
+   "in_year_revision": 4.149
+  },
+  {
+   "fiscal_year": 2024,
+   "funding_group": "City",
+   "adopted": 76.942,
+   "in_year_revision": 3.831
+  },
+  {
+   "fiscal_year": 2024,
+   "funding_group": "Non-city",
+   "adopted": 32.163,
+   "in_year_revision": 4.93
+  },
+  {
+   "fiscal_year": 2025,
+   "funding_group": "City",
+   "adopted": 83.203,
+   "in_year_revision": 4.69
+  },
+  {
+   "fiscal_year": 2025,
+   "funding_group": "Non-city",
+   "adopted": 31.182,
+   "in_year_revision": 4.77
+  },
+  {
+   "fiscal_year": 2026,
+   "funding_group": "City",
+   "adopted": 87.527,
+   "in_year_revision": 6.694
+  },
+  {
+   "fiscal_year": 2026,
+   "funding_group": "Non-city",
+   "adopted": 30.265,
+   "in_year_revision": 4.743
+  },
+  {
+   "fiscal_year": 2027,
+   "funding_group": "City",
+   "adopted": 96.096,
+   "in_year_revision": 0.0
+  },
+  {
+   "fiscal_year": 2027,
+   "funding_group": "Non-city",
+   "adopted": 32.33,
+   "in_year_revision": 0.0
+  }
+ ],
+ "fy2026_in_year_revision_by_funding_source_bn": [
+  {
+   "funding_source_name": "City funds",
+   "r": 6.694
+  },
+  {
+   "funding_source_name": "Federal",
+   "r": 2.279
+  },
+  {
+   "funding_source_name": "Intra-city sales",
+   "r": 0.535
+  },
+  {
+   "funding_source_name": "Community development",
+   "r": 0.112
+  },
+  {
+   "funding_source_name": "Inter-fund agreement (IFA)",
+   "r": -0.004
+  },
+  {
+   "funding_source_name": "State",
+   "r": 1.69
+  },
+  {
+   "funding_source_name": "Other categorical",
+   "r": 0.131
+  }
+ ],
+ "forecast_backtest": [
+  {
+   "model": "prelim_anchor",
+   "n": 8,
+   "mape": 0.03005,
+   "max_ape": 0.08578,
+   "bias": -459245007.59499,
+   "rmse": 3930994967.00663
+  },
+  {
+   "model": "drift",
+   "n": 8,
+   "mape": 0.0355,
+   "max_ape": 0.09357,
+   "bias": -876183034.22071,
+   "rmse": 4950294984.27348
+  },
+  {
+   "model": "log_trend",
+   "n": 8,
+   "mape": 0.03744,
+   "max_ape": 0.0942,
+   "bias": -1824045423.196,
+   "rmse": 4776354484.5125
+  },
+  {
+   "model": "naive",
+   "n": 8,
+   "mape": 0.05387,
+   "max_ape": 0.10516,
+   "bias": -4680307873.75,
+   "rmse": 6524631272.7343
+  }
+ ],
+ "forecast_next": [
+  {
+   "target_fy": 2028,
+   "model": "naive",
+   "forecast": 128.426,
+   "p10": 128.641,
+   "p90": 141.052
+  },
+  {
+   "target_fy": 2028,
+   "model": "drift",
+   "forecast": 134.12,
+   "p10": 129.279,
+   "p90": 142.579
+  },
+  {
+   "target_fy": 2028,
+   "model": "log_trend",
+   "forecast": 128.646,
+   "p10": 125.06,
+   "p90": 135.767
+  }
+ ],
+ "anomalies": {
+  "scored_lines": 8367,
+  "flagged": 570,
+  "by_year": {
+   "2016": 40,
+   "2017": 33,
+   "2018": 38,
+   "2019": 45,
+   "2020": 59,
+   "2021": 58,
+   "2022": 56,
+   "2023": 51,
+   "2024": 62,
+   "2025": 61,
+   "2026": 67
+  }
+ }
+}

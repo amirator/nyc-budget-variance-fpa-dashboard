@@ -1,0 +1,78 @@
+// DAX measure library for the NYC budget revision variance model (see semantic_model.md).
+// Author: Amir Khan. STATUS: written against the star schema in this repo; NOT yet validated in
+// Power BI Desktop (no Windows/Power BI environment was available when this was built).
+// Table names match the DuckDB mart schema (export the mart tables to Parquet or connect via the DuckDB ODBC driver).
+
+// ---------- base
+Plan Amount = SUM ( fct_budget_line[plan_amount] )
+Prior FY Adopted (restated) = SUM ( fct_budget_line[prior_fy_adopted_amount] )
+Prior FY Modified = SUM ( fct_budget_line[prior_fy_modified_amount] )
+Plan Positions = SUM ( fct_budget_line[plan_positions] )
+
+// ---------- stage-specific (dim_budget_stage[stage] in {Preliminary, Executive, Adopted})
+Preliminary = CALCULATE ( [Plan Amount], dim_budget_stage[stage] = "Preliminary" )
+Executive = CALCULATE ( [Plan Amount], dim_budget_stage[stage] = "Executive" )
+Adopted = CALCULATE ( [Plan Amount], dim_budget_stage[stage] = "Adopted" )
+
+// ---------- budget-cycle bridge
+Prelim to Exec = [Executive] - [Preliminary]
+Exec to Adopted = [Adopted] - [Executive]
+Prelim to Adopted = [Adopted] - [Preliminary]
+Prelim to Adopted % = DIVIDE ( [Prelim to Adopted], [Preliminary] )
+
+// ---------- in-year revision for FY N, read from the FY N+1 Adopted publication
+// (dataset stores FY N's adopted/modified on FY N+1 rows)
+Modified (in-year) =
+VAR fy = SELECTEDVALUE ( dim_fiscal_year[fiscal_year] )
+RETURN
+    CALCULATE (
+        [Prior FY Modified],
+        dim_budget_stage[stage] = "Adopted",
+        dim_fiscal_year[fiscal_year] = fy + 1
+    )
+Adopted (restated next yr) =
+VAR fy = SELECTEDVALUE ( dim_fiscal_year[fiscal_year] )
+RETURN
+    CALCULATE (
+        [Prior FY Adopted (restated)],
+        dim_budget_stage[stage] = "Adopted",
+        dim_fiscal_year[fiscal_year] = fy + 1
+    )
+In-year Revision = [Modified (in-year)] - [Adopted (restated next yr)]
+In-year Revision % = DIVIDE ( [In-year Revision], [Adopted (restated next yr)] )
+
+// ---------- year-over-year variance of the Adopted budget
+Adopted PY =
+VAR fy = SELECTEDVALUE ( dim_fiscal_year[fiscal_year] )
+RETURN CALCULATE ( [Adopted], dim_fiscal_year[fiscal_year] = fy - 1 )
+Adopted YoY = [Adopted] - [Adopted PY]
+Adopted YoY % = DIVIDE ( [Adopted YoY], [Adopted PY] )
+Share of YoY Change =
+DIVIDE ( [Adopted YoY], CALCULATE ( [Adopted YoY], REMOVEFILTERS ( dim_agency ), REMOVEFILTERS ( dim_object_class ) ) )
+
+// ---------- funding sources (fct_funding long form: measure in {financial_plan, adopted_budget, current_budget})
+Funding Plan = CALCULATE ( SUM ( fct_funding[amount] ), fct_funding[measure] = "financial_plan" )
+Funding Adopted = CALCULATE ( [Funding Plan], dim_budget_stage[stage] = "Adopted" )
+City-funded Share = DIVIDE ( CALCULATE ( [Funding Adopted], dim_funding_source[funding_group] = "City" ), [Funding Adopted] )
+Funding In-year Revision =
+VAR fy = SELECTEDVALUE ( dim_fiscal_year[fiscal_year] )
+RETURN
+    CALCULATE (
+        SUM ( fct_funding[amount] ),
+        fct_funding[measure] = "current_budget", dim_budget_stage[stage] = "Adopted", dim_fiscal_year[fiscal_year] = fy + 1
+    )
+    - CALCULATE (
+        SUM ( fct_funding[amount] ),
+        fct_funding[measure] = "adopted_budget", dim_budget_stage[stage] = "Adopted", dim_fiscal_year[fiscal_year] = fy + 1
+    )
+
+// ---------- multi-year
+Adopted CAGR =
+VAR firstFY = CALCULATE ( MIN ( dim_fiscal_year[fiscal_year] ), FILTER ( ALLSELECTED ( dim_fiscal_year ), [Adopted] > 0 ) )
+VAR lastFY = CALCULATE ( MAX ( dim_fiscal_year[fiscal_year] ), FILTER ( ALLSELECTED ( dim_fiscal_year ), [Adopted] > 0 ) )
+VAR a0 = CALCULATE ( [Adopted], dim_fiscal_year[fiscal_year] = firstFY )
+VAR a1 = CALCULATE ( [Adopted], dim_fiscal_year[fiscal_year] = lastFY )
+RETURN IF ( lastFY > firstFY, ( a1 / a0 ) ^ ( 1 / ( lastFY - firstFY ) ) - 1 )
+
+// ---------- labels for waterfall visuals
+Variance Label = FORMAT ( [Adopted YoY] / 1e9, "+#,0.00;-#,0.00" ) & " bn"

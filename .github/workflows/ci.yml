@@ -1,0 +1,26 @@
+name: ci
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip}
+      - run: pip install -r requirements.txt
+      - run: PYTHONPATH=src python -m pytest -q tests   # warehouse tests skip without data
+  end-to-end:
+    needs: unit
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip}
+      - run: pip install -r requirements.txt
+      - run: ./run_all.sh            # live NYC Open Data pull, warehouse checks, all tests, report
+      - uses: actions/upload-artifact@v4
+        with: {name: reports, path: reports/}
